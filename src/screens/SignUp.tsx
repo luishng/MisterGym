@@ -16,7 +16,7 @@ import LogoSvg from "@assets/logo.svg";
 import BackgroundImg from "@assets/background.png";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
-import { api } from "../service/api";
+import { api } from "@services/api";
 
 import { AppError } from "@utils/AppError";
 import { useState } from "react";
