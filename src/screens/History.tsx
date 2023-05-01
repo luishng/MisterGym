@@ -1,12 +1,14 @@
 import { Heading, VStack, SectionList, Text, useToast } from "native-base";
 
-import { HistoryCard } from "@components/HistoryCard";
-import { ScreenHeader } from "@components/ScreenHeader";
 import { useCallback, useState } from "react";
 import { AppError } from "@utils/AppError";
 import { api } from "@services/api";
 import { useFocusEffect } from "@react-navigation/native";
 import { HistoryByDayDTO } from "@dtos/HistoryByDayDTO";
+
+import { HistoryCard } from "@components/HistoryCard";
+import { ScreenHeader } from "@components/ScreenHeader";
+import { Loading } from "@components/Loading";
 
 export function History() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,33 +44,37 @@ export function History() {
     <VStack flex={1}>
       <ScreenHeader title="Histórico de Exercícios" />
 
-      <SectionList
-        sections={exercises}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <HistoryCard data={item} />}
-        renderSectionHeader={({ section }) => (
-          <Heading
-            color="gray.100"
-            fontSize="md"
-            mt={10}
-            mb={3}
-            fontFamily="heading"
-          >
-            {section.title}
-          </Heading>
-        )}
-        px={8}
-        contentContainerStyle={
-          [].length === 0 && { flex: 1, justifyContent: "center" }
-        }
-        ListEmptyComponent={() => (
-          <Text color="gray.100" textAlign="center">
-            Não há exercícios registrados ainda. {"\n"}
-            Vamos fazer exercícios hoje?
-          </Text>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <SectionList
+          sections={exercises}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <HistoryCard data={item} />}
+          renderSectionHeader={({ section }) => (
+            <Heading
+              color="gray.100"
+              fontSize="md"
+              mt={10}
+              mb={3}
+              fontFamily="heading"
+            >
+              {section.title}
+            </Heading>
+          )}
+          px={8}
+          contentContainerStyle={
+            [].length === 0 && { flex: 1, justifyContent: "center" }
+          }
+          ListEmptyComponent={() => (
+            <Text color="gray.100" textAlign="center">
+              Não há exercícios registrados ainda. {"\n"}
+              Vamos fazer exercícios hoje?
+            </Text>
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
+      )}
     </VStack>
   );
 }

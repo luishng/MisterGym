@@ -36,7 +36,7 @@
   <a href="#-license">License</a>
 </p>
 
-## :recycle: About the project
+## 🏋🏽💪🏼 About the project
 
 This project was developed on the Ignite by [Rocketseat](https://rocketseat.com.br/) &nbsp;🚀
 
@@ -52,10 +52,19 @@ This software a mobile hybrid application, provide a way for the people control 
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://docs.expo.io/) (in Managed Workflow)
+- [React Hook Form](https://react-hook-form.com/) (in Managed Workflow)
+- [React Navigation (v6)](https://reactnavigation.org/)
+- [Axios](https://axios-http.com/)
+- [Native Base](https://nativebase.io/)
+- [Yup](https://www.npmjs.com/package/yup)
 
 ## 🔗 Features
 
-- In development
+- List of exercises for each body part;
+- Exercises details;
+- Mark exercises as done;
+- Exercises history of days;
+- User profile;
 
 ## 🏁 Getting Started
 
@@ -67,17 +76,31 @@ This software a mobile hybrid application, provide a way for the people control 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://docs.expo.io/)
 
-**Clone the project and access the folder**
+**Clone Back-End project and access the folder**
+
+```bash
+$ git clone https://github.com/luishng/MisterGym-api.git && cd MisterGym-api
+```
+
+```bash
+# Install the dependencies
+$ npm i
+
+# Start the client
+$ npn run start
+```
+
+**Let the backend running and use the Mobile Project!**
+
+**Clone Mobile project and access the folder**
 
 ```bash
 $ git clone https://github.com/luishng/MisterGym.git && cd MisterGym
 ```
 
-### Mobile
-
 ```bash
 # Install the dependencies
-$ yarn
+$ npm i
 
 # Start the client
 $ expo start
